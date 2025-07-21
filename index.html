@@ -35,43 +35,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AR com vídeo no marcador Hiro</title>
+    <title>Terceira experiencia de realidade aumentada com o hiro video</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <!-- NÃO USAR display: none -->
-    <video
-      id="SamiVideo"
-      src="SamiVideo.mp4"
-      autoplay
-      loop
-      muted
-      playsinline
-      webkit-playsinline
-      crossorigin="anonymous"
-      style="position: absolute; width: 1px; height: 1px; opacity: 0;"
-    ></video>
-
-    <a-scene vr-mode-ui="enabled: false" embedded arjs="debugUIEnabled: false;">
+    <video id="SamiVideo" src="SamiVideo.mp4" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline muted style="display: none;"></video>
+    <a-scene vr-mode-ui="enable: false" embedded arjs="debugUIEnabled: false">
       <a-marker preset="hiro">
-        <a-video
-          src="#SamiVideo"
-          position="0 0.5 0"
-          rotation="0 0 0"
-          width="1"
-          height="0.5625"
-        ></a-video>
+        <a-video src="#SamiVideo" position="0 0.5 0" rotation="0 0 0"></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
-
-    <script>
-      // Tenta dar play no vídeo assim que o usuário interagir
-      const video = document.querySelector("#SamiVideo");
-
-      const tryPlay = () => {
-        video.play().catch((err) => {
-          console.warn("Autoplay falhou, tentando novamente após interação
-
-
+  </body>
+</html>
